@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vampire Diaries</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --preto: #090708;
+    --escuro: #140c0f;
+    --vinho: #650e20;
+    --vermelho: #a51c35;
+    --vermelho-claro: #c42b47;
+    --branco: #f1e9e9;
+    --cinza: #c2b5b8;
+}
+
+body {
+    background: var(--preto);
+    color: var(--branco);
+    font-family: 'Cormorant Garamond', serif;
+}
+
+h1, h2, h3, nav, .botao, .logo {
+    font-family: 'Cinzel', serif;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    background: linear-gradient(to bottom, #080607, transparent);
+}
+
+.logo {
+    color: var(--vermelho-claro);
+    font-size: 22px;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--vermelho-claro);
+}
+
+.menu {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 20px 70px;
+    background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.9)),
+        url("https://images4.alphacoders.com/273/273678.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-conteudo {
+    max-width: 850px;
+}
+
+.subtitulo {
+    color: #d49aa3;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 6px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 8vw, 85px);
+    letter-spacing: 3px;
+    line-height: 1.2;
+    text-shadow: 0 0 25px #650e20;
+}
+
+.hero h1 span {
+    color: var(--vermelho-claro);
+}
+
+.hero p {
+    font-size: 23px;
+    color: #ddd0d2;
+    margin: 25px auto 35px;
+    max-width: 650px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 14px 30px;
+    background: var(--vinho);
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    border: 1px solid var(--vermelho);
+    transition: .3s;
+}
+
+.botao:hover {
+    background: var(--vermelho);
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 85px 8%;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.titulo span {
+    color: var(--vermelho-claro);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.titulo h2 {
+    font-size: clamp(27px, 4vw, 40px);
+    margin-top: 12px;
+}
+
+.linha {
+    width: 65px;
+    height: 2px;
+    background: var(--vermelho);
+    margin: 18px auto;
+}
+
+.sobre {
+    background: var(--escuro);
+}
+
+.sobre-conteudo {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.sobre-conteudo p {
+    font-size: 21px;
+    line-height: 1.8;
+    color: var(--cinza);
+}
+
+.destaque {
+    color: var(--vermelho-claro);
+}
+
+.personagens {
+    background: var(--preto);
+}
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 24px;
+}
+
+.personagem {
+    background: #170e11;
+    border: 1px solid #421521;
+    transition: .3s;
+    overflow: hidden;
+}
+
+.personagem:hover {
+    transform: translateY(-7px);
+    border-color: var(--vermelho-claro);
+}
+
+.personagem img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+.personagem-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.personagem h3 {
+    color: var(--vermelho-claro);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.personagem p {
+    color: var(--cinza);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.casais {
+    background: #100a0c;
+}
+
+.casais-card {
+    background: #1b0d12;
+    border: 1px solid #571728;
+    padding: 0 0 30px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.casais-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 22px;
+}
+
+.casais-card h3,
+.casais-card p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.casais-card h3 {
+    color: var(--vermelho-claro);
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.casais-card p {
+    color: var(--cinza);
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+.mystic {
+    background: var(--escuro);
+}
+
+.mystic-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.mystic-conteudo img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    border: 1px solid var(--vinho);
+}
+
+.mystic-conteudo p {
+    color: var(--cinza);
+    font-size: 21px;
+    line-height: 1.8;
+}
+
+.criaturas {
+    background: var(--preto);
+}
+
+.criatura {
+    padding: 30px 20px;
+    background: #170e11;
+    border-bottom: 2px solid var(--vermelho);
+    text-align: center;
+}
+
+.criatura h3 {
+    color: var(--vermelho-claro);
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.criatura p {
+    color: var(--cinza);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.galeria {
+    background: var(--escuro);
+}
+
+.galeria img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    transition: .3s;
+    filter: brightness(.8);
+}
+
+.galeria img:hover {
+    filter: brightness(1);
+    transform: scale(1.02);
+}
+
+.franquia {
+    background: var(--preto);
+}
+
+.serie-card {
+    background: #170e11;
+    border: 1px solid #501522;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.serie-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--vermelho-claro);
+}
+
+.serie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.serie-info {
+    padding: 23px;
+}
+
+.serie-info h3 {
+    color: var(--vermelho-claro);
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.serie-info p {
+    color: var(--cinza);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.frase {
+    background: linear-gradient(135deg, #250b12, #080708);
+    text-align: center;
+    padding: 75px 20px;
+}
+
+.frase p {
+    max-width: 750px;
+    margin: auto;
+    font-size: 27px;
+    font-style: italic;
+    color: #e8d9dc;
+}
+
+.frase span {
+    display: block;
+    margin-top: 20px;
+    color: var(--vermelho-claro);
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+footer {
+    padding: 45px 20px;
+    text-align: center;
+    background: #050405;
+    border-top: 1px solid #43131e;
+}
+
+footer .logo {
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: var(--cinza);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+footer small {
+    color: #796e70;
+}
+
+@media (max-width: 900px) {
+    header {
+        padding: 20px 6%;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        width: 220px;
+        padding: 20px;
+        background: #160b0f;
+        border: 1px solid #68172a;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav.ativo {
+        display: flex;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .mystic-conteudo {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    section {
+        padding: 65px 6%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 19px;
+    }
+
+    .subtitulo {
+        letter-spacing: 3px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">TVD</div>
+
+    <div class="menu" onclick="abrirMenu()">☰</div>
+
+    <nav id="nav">
+        <a href="#inicio">INÍCIO</a>
+        <a href="#sobre">SOBRE</a>
+        <a href="#personagens">PERSONAGENS</a>
+        <a href="#casais">CASAIS</a>
+        <a href="#mystic">MYSTIC FALLS</a>
+        <a href="#criaturas">CRIATURAS</a>
+        <a href="#galeria">GALERIA</a>
+        <a href="#franquia">FRANQUIA</a>
+    </nav>
+</header>
+
+<section class="hero" id="inicio">
+    <div class="hero-conteudo">
+        <h1>THE VAMPIRE <span>DIARIES</span></h1>
+        <p>Amor, mistério, segredos e criaturas sobrenaturais. Algumas histórias nunca deixam de assombrar.</p>
+        <a href="#sobre" class="botao">DESCUBRA ESSE UNIVERSO</a>
+    </div>
+</section>
+
+<section class="sobre" id="sobre">
+    <div class="titulo">
+        <span>CONHEÇA A HISTÓRIA</span>
+        <h2>Sobre a série</h2>
+        <div class="linha"></div>
+    </div>
+
+    <div class="sobre-conteudo">
+        <p>
+            <span class="destaque">The Vampire Diaries</span> é uma série de drama,
+            fantasia e romance que acompanha Elena Gilbert, uma jovem que vive
+            na misteriosa cidade de Mystic Falls. Sua vida muda quando conhece
+            os irmãos Stefan e Damon Salvatore, dois vampiros com personalidades
+            e histórias muito diferentes.
+        </p>
+        <br>
+        <p>
+            Ao longo da história, segredos antigos são revelados, amizades são
+            colocadas à prova e o mundo sobrenatural passa a fazer parte da vida
+            dos moradores da cidade.
+        </p>
+    </div>
+</section>
+
+<section class="personagens" id="personagens">
+    <div class="titulo">
+        <span>ROSTOS DE MYSTIC FALLS</span>
+        <h2>Personagens principais</h2>
+        <div class="linha"></div>
+    </div>
+
+    <div class="grade">
+        <article class="personagem">
+            <img src="https://i.pinimg.com/736x/3d/d3/14/3dd314e9eb2771c93b903337694a56c3.jpg">
+            <div class="personagem-info">
+                <h3>Elena Gilbert</h3>
+                <p>Uma jovem que tenta seguir em frente após perdas importantes e acaba envolvida no mundo sobrenatural.</p>
+            </div>
+        </article>
+
+        <article class="personagem">
+            <img src="https://i.pinimg.com/564x/3f/4a/da/3f4ada7a90c040dca66e969a923a2a1b.jpg">
+            <div class="personagem-info">
+                <h3>Damon Salvatore</h3>
+                <p>Um vampiro sarcástico e imprevisível, que esconde sentimentos por trás de sua personalidade provocadora.</p>
+            </div>
+        </article>
+
+        <article class="personagem">
+            <img src="https://static.wikia.nocookie.net/liberproeliis/images/1/12/3e3099_55a54e6178b0424595648f98d9841333_mv2.jpg/revision/latest?cb=20230210194526&path-prefix=pt-br">
+            <div class="personagem-info">
+                <h3>Stefan Salvatore</h3>
+                <p>Um vampiro que busca controlar seus impulsos e preservar sua humanidade.</p>
+            </div>
+        </article>
+
+        <article class="personagem">
+            <img src="https://static.wikia.nocookie.net/the-queen-mikaelson/images/4/49/Bonnie_Bennett.jpg/revision/latest?cb=20221201100928">
+            <div class="personagem-info">
+                <h3>Bonnie Bennett</h3>
+                <p>Uma bruxa poderosa e leal, que descobre a importância de sua família e de seus dons.</p>
+            </div>
+        </article>
+
+        <article class="personagem">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwzE0d0swYRy2tL6nAtH6U_TvaSIVT5E8wT4CcyLWUkg&s=10">
+            <div class="personagem-info">
+                <h3>Caroline Forbes</h3>
+                <p>Uma personagem determinada, que passa por grandes transformações ao longo da série.</p>
+            </div>
+        </article>
+
+        <article class="personagem">
+            <img src="https://static.wikia.nocookie.net/villains-versos-galeria/images/b/b0/Katherine_P.P..jpg/revision/latest?cb=20240421235756&path-prefix=pt-br">
+            <div class="personagem-info">
+                <h3>Katherine Pierce</h3>
+                <p>Misteriosa e estratégica, é uma personagem que sabe como surpreender quem está ao seu redor.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="casais" id="casais">
+    <div class="titulo">
+        <span>LAÇOS E HISTÓRIAS</span>
+        <h2>Relações marcantes</h2>
+        <div class="linha"></div>
+    </div>
+
+    <div class="grade">
+        <div class="casais-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPtICURmnlkoVwfQWl-k4M3-wUFokJFjXIg4YDL5aRGw&s=10">
+            <h3>Elena e Damon</h3>
+            <p>Uma relação marcada por conflitos, escolhas difíceis e sentimentos que mudam ao longo da história.</p>
+        </div>
+
+        <div class="casais-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLk10OF4TJt4LLzcaPtTzFwsZQXK_jweHpAjiIoGhvzt1tzf95H7FtMRxB&s=10">
+            <h3>Bonnie e Enzo</h3>
+            <p>Uma conexão que começa com um encontro inesperado e se desenvolve em meio a segredos e desafios.</p>
+        </div>
+
+        <div class="casais-card">
+            <img src="https://preview.redd.it/do-you-think-that-klaroline-shouldve-had-a-better-chance-of-v0-10qswqdg90ob1.jpg?width=630&format=pjpg&auto=webp&s=704594d852cdd57582993a578cf7dd9b6a9ef27c">
+            <h3>Caroline e Klaus</h3>
+            <p>Uma relação que conecta personagens de diferentes histórias do universo sobrenatural.</p>
+        </div>
+    </div>
+</section>
+
+<section class="mystic" id="mystic">
+    <div class="titulo">
+        <span>UMA CIDADE CHEIA DE SEGREDOS</span>
+        <h2>Mystic Falls</h2>
+        <div class="linha"></div>
+    </div>
+
+    <div class="mystic-conteudo">
+      <img src="https://i0.wp.com/www.metrotimes.com/wp-content/uploads/2025/06/image_alt_tag__the_clock_tower.webp?ssl=1">
+        <p>
+            Mystic Falls é o cenário principal de The Vampire Diaries.
+            Por trás de sua aparência tranquila, a cidade guarda uma longa
+            história de acontecimentos sobrenaturais, famílias antigas e
+            mistérios que influenciam a vida de seus moradores.
+        </p>
+    </div>
+</section>
+
+<section class="criaturas" id="criaturas">
+    <div class="titulo">
+        <span>O LADO SOBRENATURAL</span>
+        <h2>Criaturas do universo</h2>
+        <div class="linha"></div>
+    </div>
+
+    <div class="grade">
+        <div class="criatura">
+            <h3>Vampiros</h3>
+            <p>Seres sobrenaturais que possuem habilidades especiais e uma história ligada à cidade.</p>
+        </div>
+
+        <div class="criatura">
+            <h3>Bruxas</h3>
+            <p>Indivíduos que utilizam a magia e mantêm tradições passadas entre gerações.</p>
+        </div>
+
+        <div class="criatura">
+            <h3>Lobisomens</h3>
+            <p>Seres que carregam uma maldição ligada à transformação e à lua cheia.</p>
+        </div>
+
+        <div class="criatura">
+            <h3>Híbridos</h3>
+            <p>Criaturas que reúnem características de mais de uma espécie sobrenatural.</p>
+        </div>
+    </div>
+</section>
+
+<section class="galeria" id="galeria">
+    <div class="titulo">
+        <span>UM OLHAR SOBRE ESSE UNIVERSO</span>
+        <h2>Galeria</h2>
+        <div class="linha"></div>
+    </div>
+
+    <div class="grade">
+        <img src="https://img.tribunahoje.com/hft0bqnNzZD0wclUlwqfYVHLIu0=/840x520/smart/s3.tribunahoje.com/uploads/imagens/thevampirediaries.webp" alt="Floresta">
+        <img src="https://cinematecando.com.br/wp-content/uploads/2017/03/5-1.jpg" alt="Paisagem">
+        <img src="https://br.web.img2.acsta.net/newsv7/20/06/25/16/59/3481804.jpg">
+        <img src="https://br.web.img3.acsta.net/r_1280_720/newsv7/20/06/09/20/37/5922790.jpg">
+    </div>
+</section>
+
+<section class="franquia" id="franquia">
+    <div class="titulo">
+        <span>O UNIVERSO CONTINUA</span>
+        <h2>A franquia The Vampire Diaries</h2>
+        <div class="linha"></div>
+    </div>
+
+    <div class="grade">
+        <article class="serie-card">
+            <img src="https://m.media-amazon.com/images/S/pv-target-images/1545c1c1c89d476d35029056ddb248ebb9523acf7488250d0370e8a8fa5e40ad.jpg">
+            <div class="serie-info">
+                <h3>The Vampire Diaries</h3>
+                <p>A série que apresenta Mystic Falls, os irmãos Salvatore e os personagens que dão início a esse universo sobrenatural.</p>
+            </div>
+        </article>
+
+        <article class="serie-card">
+            <img src="https://ntvb.tmsimg.com/assets/p10874252_b_h10_aa.jpg?w=960&h=540">
+            <div class="serie-info">
+                <h3>The Originals</h3>
+                <p>O spin-off acompanha a família Mikaelson em Nova Orleans, explorando o passado dos vampiros Originais e suas disputas por poder.</p>
+            </div>
+        </article>
+
+        <article class="serie-card">
+            <img src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/1314476a-873f-42b7-9759-d37dc1d03760/c4dccaa0fcc1d49d750b85d6454fd32cc0b8033b.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom">
+            <div class="serie-info">
+                <h3>Legacies</h3>
+                <p>A história acompanha jovens sobrenaturais na Escola Salvatore, onde aprendem a lidar com seus poderes e descobrem novos desafios.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+
+<footer>
+    <div class="logo">THE VAMPIRE DIARIES</div>
+    <p>Um universo de mistérios, histórias e personagens inesquecíveis.</p>
+    <small>Site criado para fins educativos e de fã. Não oficial.</small>
+</footer>
+
+<script>
+function abrirMenu() {
+    const nav = document.getElementById("nav");
+    nav.classList.toggle("ativo");
+}
+
+document.querySelectorAll("nav a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        document.getElementById("nav").classList.remove("ativo");
+    });
+});
+</script>
+
+</body>
+</html>
