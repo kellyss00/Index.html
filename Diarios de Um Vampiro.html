@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090708">
 <title>The Vampire Diaries</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,15 +28,28 @@
     --cinza: #c2b5b8;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 body {
     background: var(--preto);
     color: var(--branco);
     font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 h1, h2, h3, nav, .botao, .logo {
     font-family: 'Cinzel', serif;
 }
+
+img {
+    max-width: 100%;
+}
+
+/* CABEÇALHO */
 
 header {
     position: absolute;
@@ -47,7 +60,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 10;
+    z-index: 100;
     background: linear-gradient(to bottom, #080607, transparent);
 }
 
@@ -55,11 +68,13 @@ header {
     color: var(--vermelho-claro);
     font-size: 22px;
     letter-spacing: 3px;
+    white-space: nowrap;
 }
 
 nav {
     display: flex;
     gap: 22px;
+    align-items: center;
 }
 
 nav a {
@@ -79,24 +94,32 @@ nav a:hover {
     font-size: 28px;
     cursor: pointer;
     color: white;
+    background: none;
+    border: none;
+    padding: 5px;
 }
+
+/* INÍCIO */
 
 .hero {
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 120px 20px 70px;
+    padding: 140px 20px 70px;
     background:
         linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.9)),
         url("https://images4.alphacoders.com/273/273678.jpg");
     background-size: cover;
     background-position: center;
+    background-color: #140c0f;
 }
 
 .hero-conteudo {
     max-width: 850px;
+    width: 100%;
 }
 
 .subtitulo {
@@ -112,6 +135,7 @@ nav a:hover {
     letter-spacing: 3px;
     line-height: 1.2;
     text-shadow: 0 0 25px #650e20;
+    overflow-wrap: break-word;
 }
 
 .hero h1 span {
@@ -123,6 +147,7 @@ nav a:hover {
     color: #ddd0d2;
     margin: 25px auto 35px;
     max-width: 650px;
+    line-height: 1.5;
 }
 
 .botao {
@@ -142,8 +167,11 @@ nav a:hover {
     transform: translateY(-3px);
 }
 
+/* SEÇÕES */
+
 section {
     padding: 85px 8%;
+    width: 100%;
 }
 
 .titulo {
@@ -170,6 +198,8 @@ section {
     margin: 18px auto;
 }
 
+/* SOBRE */
+
 .sobre {
     background: var(--escuro);
 }
@@ -190,14 +220,17 @@ section {
     color: var(--vermelho-claro);
 }
 
+/* PERSONAGENS */
+
 .personagens {
     background: var(--preto);
 }
 
 .grade {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
     gap: 24px;
+    width: 100%;
 }
 
 .personagem {
@@ -205,6 +238,7 @@ section {
     border: 1px solid #421521;
     transition: .3s;
     overflow: hidden;
+    min-width: 0;
 }
 
 .personagem:hover {
@@ -236,6 +270,8 @@ section {
     line-height: 1.5;
 }
 
+/* CASAIS */
+
 .casais {
     background: #100a0c;
 }
@@ -246,6 +282,7 @@ section {
     padding: 0 0 30px;
     text-align: center;
     overflow: hidden;
+    min-width: 0;
 }
 
 .casais-card img {
@@ -274,6 +311,8 @@ section {
     line-height: 1.6;
 }
 
+/* MYSTIC FALLS */
+
 .mystic {
     background: var(--escuro);
 }
@@ -298,6 +337,8 @@ section {
     line-height: 1.8;
 }
 
+/* CRIATURAS */
+
 .criaturas {
     background: var(--preto);
 }
@@ -321,6 +362,8 @@ section {
     line-height: 1.5;
 }
 
+/* GALERIA */
+
 .galeria {
     background: var(--escuro);
 }
@@ -331,12 +374,15 @@ section {
     object-fit: cover;
     transition: .3s;
     filter: brightness(.8);
+    display: block;
 }
 
 .galeria img:hover {
     filter: brightness(1);
     transform: scale(1.02);
 }
+
+/* FRANQUIA */
 
 .franquia {
     background: var(--preto);
@@ -347,6 +393,7 @@ section {
     border: 1px solid #501522;
     overflow: hidden;
     transition: .3s;
+    min-width: 0;
 }
 
 .serie-card:hover {
@@ -377,6 +424,8 @@ section {
     line-height: 1.5;
 }
 
+/* FRASE */
+
 .frase {
     background: linear-gradient(135deg, #250b12, #080708);
     text-align: center;
@@ -400,6 +449,8 @@ section {
     letter-spacing: 2px;
 }
 
+/* RODAPÉ */
+
 footer {
     padding: 45px 20px;
     text-align: center;
@@ -421,6 +472,49 @@ footer small {
     color: #796e70;
 }
 
+/* IMAGENS COM ERRO */
+
+.imagem-indisponivel {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #170e11, #350d19);
+    color: #d49aa3;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 15px;
+    min-height: 150px;
+    border: 1px solid #571728;
+}
+
+/* NOTEBOOKS E TABLETS */
+
+@media (max-width: 1100px) {
+    header {
+        padding: 20px 5%;
+    }
+
+    nav {
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 9px;
+    }
+
+    section {
+        padding: 75px 6%;
+    }
+
+    .grade {
+        gap: 18px;
+    }
+}
+
+/* MENU PARA TELAS MENORES */
+
 @media (max-width: 900px) {
     header {
         padding: 20px 6%;
@@ -433,14 +527,16 @@ footer small {
     nav {
         display: none;
         position: absolute;
-        top: 70px;
+        top: 75px;
         right: 5%;
-        width: 220px;
-        padding: 20px;
+        width: min(260px, 90vw);
+        padding: 22px;
         background: #160b0f;
         border: 1px solid #68172a;
         flex-direction: column;
+        align-items: flex-start;
         gap: 18px;
+        box-shadow: 0 10px 25px rgba(0,0,0,.5);
     }
 
     nav.ativo {
@@ -449,28 +545,196 @@ footer small {
 
     nav a {
         font-size: 12px;
+        width: 100%;
     }
 
     .mystic-conteudo {
         grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .mystic-conteudo img {
+        height: 350px;
+    }
+
+    .grade {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 500px) {
-    section {
-        padding: 65px 6%;
+/* CELULARES */
+
+@media (max-width: 600px) {
+    header {
+        padding: 17px 6%;
+    }
+
+    .logo {
+        font-size: 19px;
+        letter-spacing: 2px;
+    }
+
+    .menu {
+        font-size: 27px;
+    }
+
+    .hero {
+        min-height: 90vh;
+        min-height: 90svh;
+        padding: 120px 18px 60px;
+
+        /* CORREÇÃO: MOSTRA A IMAGEM INTEIRA NO CELULAR */
+        background-size: 100% 100%, contain;
+        background-position: center, center;
+        background-repeat: no-repeat;
+        background-color: #140c0f;
     }
 
     .hero h1 {
-        font-size: 42px;
+        font-size: clamp(34px, 10vw, 48px);
+        letter-spacing: 1px;
     }
 
     .hero p {
         font-size: 19px;
+        margin: 22px auto 28px;
     }
 
     .subtitulo {
+        font-size: 10px;
         letter-spacing: 3px;
+        margin-bottom: 20px;
+    }
+
+    .botao {
+        padding: 13px 20px;
+        font-size: 10px;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .titulo {
+        margin-bottom: 35px;
+    }
+
+    .titulo span {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .titulo h2 {
+        font-size: 27px;
+    }
+
+    .sobre-conteudo p {
+        font-size: 19px;
+        line-height: 1.7;
+    }
+
+    .grade {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .personagem img {
+        height: 320px;
+    }
+
+    .casais-card img {
+        height: 280px;
+    }
+
+    .personagem-info {
+        padding: 20px;
+    }
+
+    .mystic-conteudo {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .mystic-conteudo img {
+        height: 250px;
+    }
+
+    .mystic-conteudo p {
+        font-size: 19px;
+        line-height: 1.7;
+    }
+
+    .criatura {
+        padding: 27px 20px;
+    }
+
+    .galeria img {
+        height: 250px;
+    }
+
+    .serie-card img {
+        height: 260px;
+    }
+
+    .frase {
+        padding: 60px 20px;
+    }
+
+    .frase p {
+        font-size: 22px;
+    }
+
+    footer {
+        padding: 40px 18px;
+    }
+
+    footer .logo {
+        font-size: 17px;
+        letter-spacing: 2px;
+    }
+
+    footer p {
+        font-size: 16px;
+    }
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    section {
+        padding: 50px 5%;
+    }
+
+    .titulo h2 {
+        font-size: 24px;
+    }
+
+    .personagem img {
+        height: 260px;
+    }
+
+    .casais-card img {
+        height: 230px;
+    }
+}
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
     }
 }
 </style>
@@ -481,7 +745,7 @@ footer small {
 <header>
     <div class="logo">TVD</div>
 
-    <div class="menu" onclick="abrirMenu()">☰</div>
+    <button class="menu" onclick="abrirMenu()" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">☰</button>
 
     <nav id="nav">
         <a href="#inicio">INÍCIO</a>
@@ -536,7 +800,7 @@ footer small {
 
     <div class="grade">
         <article class="personagem">
-            <img src="https://i.pinimg.com/736x/3d/d3/14/3dd314e9eb2771c93b903337694a56c3.jpg">
+            <img src="https://i.pinimg.com/736x/3d/d3/14/3dd314e9eb2771c93b903337694a56c3.jpg" alt="Elena Gilbert" loading="lazy">
             <div class="personagem-info">
                 <h3>Elena Gilbert</h3>
                 <p>Uma jovem que tenta seguir em frente após perdas importantes e acaba envolvida no mundo sobrenatural.</p>
@@ -544,7 +808,7 @@ footer small {
         </article>
 
         <article class="personagem">
-            <img src="https://i.pinimg.com/564x/3f/4a/da/3f4ada7a90c040dca66e969a923a2a1b.jpg">
+            <img src="https://i.pinimg.com/564x/3f/4a/da/3f4ada7a90c040dca66e969a923a2a1b.jpg" alt="Damon Salvatore" loading="lazy">
             <div class="personagem-info">
                 <h3>Damon Salvatore</h3>
                 <p>Um vampiro sarcástico e imprevisível, que esconde sentimentos por trás de sua personalidade provocadora.</p>
@@ -552,7 +816,7 @@ footer small {
         </article>
 
         <article class="personagem">
-            <img src="https://static.wikia.nocookie.net/liberproeliis/images/1/12/3e3099_55a54e6178b0424595648f98d9841333_mv2.jpg/revision/latest?cb=20230210194526&path-prefix=pt-br">
+            <img src="https://static.wikia.nocookie.net/villains-versos-galeria/images/c/cb/Stefan-salvatore-de-the-vampire-diarie-700x700-3.webp/revision/latest?cb=20231009000615&path-prefix=pt-br" alt="Stefan Salvatore" loading="lazy">
             <div class="personagem-info">
                 <h3>Stefan Salvatore</h3>
                 <p>Um vampiro que busca controlar seus impulsos e preservar sua humanidade.</p>
@@ -560,7 +824,7 @@ footer small {
         </article>
 
         <article class="personagem">
-            <img src="https://static.wikia.nocookie.net/the-queen-mikaelson/images/4/49/Bonnie_Bennett.jpg/revision/latest?cb=20221201100928">
+            <img src="https://static.wikia.nocookie.net/the-queen-mikaelson/images/4/49/Bonnie_Bennett.jpg/revision/latest?cb=20221201100928" alt="Bonnie Bennett" loading="lazy">
             <div class="personagem-info">
                 <h3>Bonnie Bennett</h3>
                 <p>Uma bruxa poderosa e leal, que descobre a importância de sua família e de seus dons.</p>
@@ -568,7 +832,7 @@ footer small {
         </article>
 
         <article class="personagem">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwzE0d0swYRy2tL6nAtH6U_TvaSIVT5E8wT4CcyLWUkg&s=10">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwzE0d0swYRy2tL6nAtH6U_TvaSIVT5E8wT4CcyLWUkg&s=10" alt="Caroline Forbes" loading="lazy">
             <div class="personagem-info">
                 <h3>Caroline Forbes</h3>
                 <p>Uma personagem determinada, que passa por grandes transformações ao longo da série.</p>
@@ -576,7 +840,7 @@ footer small {
         </article>
 
         <article class="personagem">
-            <img src="https://static.wikia.nocookie.net/villains-versos-galeria/images/b/b0/Katherine_P.P..jpg/revision/latest?cb=20240421235756&path-prefix=pt-br">
+            <img src="https://static.wikia.nocookie.net/villains-versos-galeria/images/b/b0/Katherine_P.P..jpg/revision/latest?cb=20240421235756&path-prefix=pt-br" alt="Katherine Pierce" loading="lazy">
             <div class="personagem-info">
                 <h3>Katherine Pierce</h3>
                 <p>Misteriosa e estratégica, é uma personagem que sabe como surpreender quem está ao seu redor.</p>
@@ -594,19 +858,19 @@ footer small {
 
     <div class="grade">
         <div class="casais-card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPtICURmnlkoVwfQWl-k4M3-wUFokJFjXIg4YDL5aRGw&s=10">
+            <img src="Olhares à Luz da Lareira.png" alt="Elena e Damon" loading="lazy">
             <h3>Elena e Damon</h3>
             <p>Uma relação marcada por conflitos, escolhas difíceis e sentimentos que mudam ao longo da história.</p>
         </div>
 
         <div class="casais-card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLk10OF4TJt4LLzcaPtTzFwsZQXK_jweHpAjiIoGhvzt1tzf95H7FtMRxB&s=10">
+            <img src="https://i.redd.it/1xqyntwf04ib1.jpg" alt="Bonnie e Enzo" loading="lazy">
             <h3>Bonnie e Enzo</h3>
             <p>Uma conexão que começa com um encontro inesperado e se desenvolve em meio a segredos e desafios.</p>
         </div>
 
         <div class="casais-card">
-            <img src="https://preview.redd.it/do-you-think-that-klaroline-shouldve-had-a-better-chance-of-v0-10qswqdg90ob1.jpg?width=630&format=pjpg&auto=webp&s=704594d852cdd57582993a578cf7dd9b6a9ef27c">
+            <img src="https://br.web.img2.acsta.net/img/8e/d9/8ed92e29429a5486eaaa70a80e73750a.jpg" alt="Caroline e Klaus" loading="lazy">
             <h3>Caroline e Klaus</h3>
             <p>Uma relação que conecta personagens de diferentes histórias do universo sobrenatural.</p>
         </div>
@@ -621,7 +885,7 @@ footer small {
     </div>
 
     <div class="mystic-conteudo">
-      <img src="https://i0.wp.com/www.metrotimes.com/wp-content/uploads/2025/06/image_alt_tag__the_clock_tower.webp?ssl=1">
+        <img src="https://i0.wp.com/www.metrotimes.com/wp-content/uploads/2025/06/image_alt_tag__the_clock_tower.webp?ssl=1" alt="Paisagem de Mystic Falls" loading="lazy">
         <p>
             Mystic Falls é o cenário principal de The Vampire Diaries.
             Por trás de sua aparência tranquila, a cidade guarda uma longa
@@ -669,10 +933,10 @@ footer small {
     </div>
 
     <div class="grade">
-        <img src="https://img.tribunahoje.com/hft0bqnNzZD0wclUlwqfYVHLIu0=/840x520/smart/s3.tribunahoje.com/uploads/imagens/thevampirediaries.webp" alt="Floresta">
-        <img src="https://cinematecando.com.br/wp-content/uploads/2017/03/5-1.jpg" alt="Paisagem">
-        <img src="https://br.web.img2.acsta.net/newsv7/20/06/25/16/59/3481804.jpg">
-        <img src="https://br.web.img3.acsta.net/r_1280_720/newsv7/20/06/09/20/37/5922790.jpg">
+        <img src="https://img.tribunahoje.com/hft0bqnNzZD0wclUlwqfYVHLIu0=/840x520/smart/s3.tribunahoje.com/uploads/imagens/thevampirediaries.webp" alt="Floresta" loading="lazy">
+        <img src="https://cinematecando.com.br/wp-content/uploads/2017/03/5-1.jpg" alt="Paisagem" loading="lazy">
+        <img src="https://diariodeseries.com.br/wp-content/uploads/2024/09/the-vampire-diaries-atores-por-onde-andam.webp" alt="Cena de The Vampire Diaries" loading="lazy">
+        <img src="https://br.web.img3.acsta.net/r_1280_720/newsv7/20/06/09/20/37/5922790.jpg" alt="Cena da série" loading="lazy">
     </div>
 </section>
 
@@ -685,7 +949,7 @@ footer small {
 
     <div class="grade">
         <article class="serie-card">
-            <img src="https://m.media-amazon.com/images/S/pv-target-images/1545c1c1c89d476d35029056ddb248ebb9523acf7488250d0370e8a8fa5e40ad.jpg">
+            <img src="https://static.wikia.nocookie.net/vampire-diaries/images/f/f3/202098-6db62-36553358-m750x740-u7d09b.jpg/revision/latest?cb=20180215134214&path-prefix=pt-br" alt="The Vampire Diaries" loading="lazy">
             <div class="serie-info">
                 <h3>The Vampire Diaries</h3>
                 <p>A série que apresenta Mystic Falls, os irmãos Salvatore e os personagens que dão início a esse universo sobrenatural.</p>
@@ -693,7 +957,7 @@ footer small {
         </article>
 
         <article class="serie-card">
-            <img src="https://ntvb.tmsimg.com/assets/p10874252_b_h10_aa.jpg?w=960&h=540">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9z2rceRmAIgE61TeDZSyofwDjag8X6Dm0eIgaSAszjEajBvpKxlbQaYI&s=10" alt="The Originals" loading="lazy">
             <div class="serie-info">
                 <h3>The Originals</h3>
                 <p>O spin-off acompanha a família Mikaelson em Nova Orleans, explorando o passado dos vampiros Originais e suas disputas por poder.</p>
@@ -701,7 +965,7 @@ footer small {
         </article>
 
         <article class="serie-card">
-            <img src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/1314476a-873f-42b7-9759-d37dc1d03760/c4dccaa0fcc1d49d750b85d6454fd32cc0b8033b.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom">
+            <img src="https://m.media-amazon.com/images/S/pv-target-images/b4e136549c1fae44129aec0e30a2da3060a612371fcac310dd323fbeb5e90a8b.jpg" alt="Legacies" loading="lazy">
             <div class="serie-info">
                 <h3>Legacies</h3>
                 <p>A história acompanha jovens sobrenaturais na Escola Salvatore, onde aprendem a lidar com seus poderes e descobrem novos desafios.</p>
@@ -710,7 +974,6 @@ footer small {
     </div>
 </section>
 
-
 <footer>
     <div class="logo">THE VAMPIRE DIARIES</div>
     <p>Um universo de mistérios, histórias e personagens inesquecíveis.</p>
@@ -718,14 +981,63 @@ footer small {
 </footer>
 
 <script>
+/* MENU RESPONSIVO */
+
 function abrirMenu() {
     const nav = document.getElementById("nav");
+    const botaoMenu = document.querySelector(".menu");
+
     nav.classList.toggle("ativo");
+
+    const menuAberto = nav.classList.contains("ativo");
+
+    botaoMenu.setAttribute("aria-expanded", menuAberto);
+    botaoMenu.innerHTML = menuAberto ? "✕" : "☰";
 }
+
+/* FECHAR MENU AO CLICAR EM UM LINK */
 
 document.querySelectorAll("nav a").forEach(function(link) {
     link.addEventListener("click", function() {
-        document.getElementById("nav").classList.remove("ativo");
+        const nav = document.getElementById("nav");
+        const botaoMenu = document.querySelector(".menu");
+
+        nav.classList.remove("ativo");
+        botaoMenu.setAttribute("aria-expanded", "false");
+        botaoMenu.innerHTML = "☰";
+    });
+});
+
+/* FECHAR MENU AO CLICAR FORA DELE */
+
+document.addEventListener("click", function(event) {
+    const nav = document.getElementById("nav");
+    const botaoMenu = document.querySelector(".menu");
+
+    if (
+        nav.classList.contains("ativo") &&
+        !nav.contains(event.target) &&
+        !botaoMenu.contains(event.target)
+    ) {
+        nav.classList.remove("ativo");
+        botaoMenu.setAttribute("aria-expanded", "false");
+        botaoMenu.innerHTML = "☰";
+    }
+});
+
+/* TRATAMENTO DE IMAGENS QUE NÃO CARREGAREM */
+
+document.querySelectorAll("img").forEach(function(imagem) {
+    imagem.addEventListener("error", function() {
+        if (imagem.classList.contains("imagem-indisponivel")) {
+            return;
+        }
+
+        imagem.removeAttribute("src");
+        imagem.alt = "Imagem indisponível";
+        imagem.classList.add("imagem-indisponivel");
+
+        imagem.style.objectFit = "contain";
     });
 });
 </script>
