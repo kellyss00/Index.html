@@ -29,7 +29,6 @@
 }
 
 html {
-    scroll-behavior: smooth;
     scroll-padding-top: 80px;
 }
 
@@ -160,6 +159,7 @@ nav a:hover {
     letter-spacing: 2px;
     border: 1px solid var(--vermelho);
     transition: .3s;
+    cursor: pointer;
 }
 
 .botao:hover {
@@ -449,6 +449,250 @@ section {
     letter-spacing: 2px;
 }
 
+/* QUIZ */
+
+.quiz {
+    background:
+        radial-gradient(ellipse at top, #310d18 0%, #14090d 45%, #090708 100%);
+    padding: 100px 8%;
+}
+
+.quiz-intro {
+    max-width: 750px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.quiz-intro p {
+    font-size: 21px;
+    line-height: 1.7;
+    color: var(--cinza);
+}
+
+.quiz-intro strong {
+    color: var(--vermelho-claro);
+}
+
+.quiz-caixa {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    background: rgba(20, 9, 13, .95);
+    border: 1px solid #68172a;
+    box-shadow: 0 0 35px rgba(101, 14, 32, .25);
+}
+
+.quiz-selo {
+    text-align: center;
+    color: #d49aa3;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 4px;
+    font-size: 10px;
+    margin-bottom: 18px;
+}
+
+.quiz-caixa h3 {
+    text-align: center;
+    color: var(--vermelho-claro);
+    font-size: clamp(20px, 4vw, 27px);
+    margin-bottom: 20px;
+}
+
+.quiz-texto {
+    text-align: center;
+    color: var(--cinza);
+    font-size: 19px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.quiz-campo {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0 20px;
+    background: #090708;
+    color: white;
+    border: 1px solid #68172a;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    outline: none;
+}
+
+.quiz-campo:focus {
+    border-color: var(--vermelho-claro);
+}
+
+.quiz-botao {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    background: var(--vinho);
+    border: 1px solid var(--vermelho-claro);
+    color: white;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .3s;
+    margin-top: 20px;
+}
+
+.quiz-botao:hover {
+    background: var(--vermelho);
+    transform: translateY(-2px);
+}
+
+.quiz-botao:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.quiz-progresso {
+    text-align: center;
+    color: #d49aa3;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+}
+
+.quiz-barra {
+    width: 100%;
+    height: 5px;
+    background: #32121b;
+    margin-bottom: 28px;
+    overflow: hidden;
+}
+
+.quiz-barra-progresso {
+    height: 100%;
+    background: var(--vermelho-claro);
+    transition: width .3s;
+}
+
+.quiz-pergunta {
+    color: var(--branco);
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.quiz-opcoes {
+    display: grid;
+    gap: 12px;
+}
+
+.quiz-opcao {
+    width: 100%;
+    padding: 15px 18px;
+    text-align: left;
+    color: #eee1e4;
+    background: #1b0d12;
+    border: 1px solid #54202d;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.quiz-opcao:hover {
+    background: #35101b;
+    border-color: var(--vermelho-claro);
+}
+
+.quiz-opcao.selecionada {
+    background: #501321;
+    border-color: #e04a65;
+}
+
+.quiz-aviso {
+    text-align: center;
+    color: #d49aa3;
+    font-size: 18px;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+.quiz-resultado {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.quiz-resultado p {
+    color: var(--cinza);
+    font-size: 20px;
+    line-height: 1.7;
+    margin: 15px 0;
+}
+
+.quiz-ranking {
+    list-style: none;
+    margin: 25px 0;
+}
+
+.quiz-ranking li {
+    padding: 18px;
+    margin: 12px 0;
+    background: #1b0d12;
+    border: 1px solid #571728;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+}
+
+.quiz-ranking li:first-child {
+    border-color: #b78b48;
+    background: #2a1b13;
+}
+
+.quiz-ranking li:nth-child(2) {
+    border-color: #858585;
+}
+
+.quiz-ranking li:nth-child(3) {
+    border-color: #875438;
+}
+
+.quiz-posicao {
+    color: var(--vermelho-claro);
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+}
+
+.quiz-pontos {
+    color: #d49aa3;
+    font-size: 17px;
+    white-space: nowrap;
+}
+
+.quiz-aviso-erro {
+    color: #ff9baa;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.quiz-sino {
+    text-align: center;
+    font-size: 48px;
+    margin: 15px 0;
+}
+
+.quiz-resposta {
+    background: #1b0d12;
+    border: 1px solid #68172a;
+    padding: 15px;
+    margin-top: 20px;
+    color: #d49aa3;
+    text-align: center;
+    font-size: 18px;
+}
+
 /* RODAPÉ */
 
 footer {
@@ -582,8 +826,6 @@ footer small {
         min-height: 90vh;
         min-height: 90svh;
         padding: 120px 18px 60px;
-
-        /* CORREÇÃO: MOSTRA A IMAGEM INTEIRA NO CELULAR */
         background-size: 100% 100%, contain;
         background-position: center, center;
         background-repeat: no-repeat;
@@ -696,6 +938,36 @@ footer small {
     footer p {
         font-size: 16px;
     }
+
+    .quiz {
+        padding: 65px 5%;
+    }
+
+    .quiz-caixa {
+        padding: 23px 17px;
+    }
+
+    .quiz-intro p {
+        font-size: 19px;
+    }
+
+    .quiz-pergunta {
+        font-size: 21px;
+    }
+
+    .quiz-opcao {
+        font-size: 18px;
+        padding: 14px;
+    }
+
+    .quiz-ranking li {
+        font-size: 17px;
+        padding: 14px 10px;
+    }
+
+    .quiz-pontos {
+        font-size: 15px;
+    }
 }
 
 /* CELULARES PEQUENOS */
@@ -756,6 +1028,7 @@ footer small {
         <a href="#criaturas">CRIATURAS</a>
         <a href="#galeria">GALERIA</a>
         <a href="#franquia">FRANQUIA</a>
+        <a href="#quiz">QUIZ</a>
     </nav>
 </header>
 
@@ -974,6 +1247,49 @@ footer small {
     </div>
 </section>
 
+<!-- QUIZ -->
+
+<section class="quiz" id="quiz">
+    <div class="titulo">
+        <span>O DESAFIO SOBRENATURAL</span>
+        <h2>The Mystic Falls Trial</h2>
+        <div class="linha"></div>
+    </div>
+
+    <div class="quiz-intro">
+        <p>
+            Duas ou três participantes. Perguntas diferentes.
+            Um único pódio. Descubra quem realmente conhece os
+            segredos de <strong>Mystic Falls</strong>.
+        </p>
+    </div>
+
+    <div class="quiz-caixa" id="quizApp">
+        <div class="quiz-selo">THE VAMPIRE DIARIES</div>
+
+        <h3>Você conhece Mystic Falls?</h3>
+
+        <p class="quiz-texto">
+            Cada participante terá sua própria rodada com cinco perguntas.
+            No final, o site revelará o ranking.
+            Se houver empate, haverá uma disputa especial com o sino!
+        </p>
+
+        <label for="quantidadeParticipantes" class="quiz-texto">
+            Quantas participantes vão jogar?
+        </label>
+
+        <select id="quantidadeParticipantes" class="quiz-campo">
+            <option value="2">2 participantes</option>
+            <option value="3">3 participantes</option>
+        </select>
+
+        <button class="quiz-botao" id="iniciarQuiz">
+            COMEÇAR O DESAFIO
+        </button>
+    </div>
+</section>
+
 <footer>
     <div class="logo">THE VAMPIRE DIARIES</div>
     <p>Um universo de mistérios, histórias e personagens inesquecíveis.</p>
@@ -981,6 +1297,7 @@ footer small {
 </footer>
 
 <script>
+
 /* MENU RESPONSIVO */
 
 function abrirMenu() {
@@ -1025,6 +1342,799 @@ document.addEventListener("click", function(event) {
     }
 });
 
+
+/* =====================================
+   QUIZ - THE MYSTIC FALLS TRIAL
+===================================== */
+
+/* PERGUNTAS DA PARTICIPANTE 1 */
+
+const rodada1 = [
+    {
+        pergunta: "Qual era o verdadeiro nome de Katherine Pierce?",
+        opcoes: [
+            "Amara Petrova",
+            "Katerina Petrova",
+            "Tatia Petrova",
+            "Nadia Petrova"
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "Quem transformou Caroline Forbes em vampira?",
+        opcoes: [
+            "Damon Salvatore",
+            "Katherine Pierce",
+            "Klaus Mikaelson",
+            "Stefan Salvatore"
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "Qual era o nome do pai biológico de Klaus Mikaelson?",
+        opcoes: [
+            "Mikael",
+            "Giuseppe",
+            "Ansel",
+            "Elijah"
+        ],
+        correta: 2
+    },
+    {
+        pergunta: "Qual era o nome da mãe biológica de Elena Gilbert?",
+        opcoes: [
+            "Jenna Sommers",
+            "Miranda Gilbert",
+            "Isobel Flemming",
+            "Esther Mikaelson"
+        ],
+        correta: 2
+    },
+    {
+        pergunta: "Qual bruxa criou o feitiço que transformou a família Mikaelson nos primeiros vampiros?",
+        opcoes: [
+            "Bonnie Bennett",
+            "Emily Bennett",
+            "Esther Mikaelson",
+            "Qetsiyah"
+        ],
+        correta: 2
+    }
+];
+
+
+/* PERGUNTAS DA PARTICIPANTE 2 */
+
+const rodada2 = [
+    {
+        pergunta: "Qual era o nome da filha de Katherine Pierce?",
+        opcoes: [
+            "Hope",
+            "Nadia",
+            "Tatia",
+            "Amara"
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "Qual era o nome da mulher que Silas amava?",
+        opcoes: [
+            "Qetsiyah",
+            "Katherine",
+            "Amara",
+            "Esther"
+        ],
+        correta: 2
+    },
+    {
+        pergunta: "Quais são os nomes das filhas gêmeas de Alaric e Jo?",
+        opcoes: [
+            "Hope e Hayley",
+            "Lizzie e Josie",
+            "Elena e Katherine",
+            "Bonnie e Caroline"
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "Quem foi o primeiro homem imortal da história de The Vampire Diaries?",
+        opcoes: [
+            "Klaus Mikaelson",
+            "Elijah Mikaelson",
+            "Silas",
+            "Damon Salvatore"
+        ],
+        correta: 2
+    },
+    {
+        pergunta: "Qual era o nome do pai biológico de Klaus Mikaelson?",
+        opcoes: [
+            "Mikael",
+            "Ansel",
+            "Giuseppe",
+            "Finn"
+        ],
+        correta: 1
+    }
+];
+
+
+/* PERGUNTAS DA PARTICIPANTE 3 */
+
+const rodada3 = [
+    {
+        pergunta: "Qual era o nome da irmã de Matt Donovan?",
+        opcoes: [
+            "Vicki Donovan",
+            "Jenna Sommers",
+            "Isobel Flemming",
+            "April Young"
+        ],
+        correta: 0
+    },
+    {
+        pergunta: "Quem eram os pais adotivos de Elena Gilbert?",
+        opcoes: [
+            "John e Isobel",
+            "Giuseppe e Lillian",
+            "Grayson e Miranda",
+            "Alaric e Jo"
+        ],
+        correta: 2
+    },
+    {
+        pergunta: "Qual ancestral de Bonnie Bennett ajudou Katherine Pierce em 1864?",
+        opcoes: [
+            "Emily Bennett",
+            "Sheila Bennett",
+            "Qetsiyah",
+            "Ayana"
+        ],
+        correta: 0
+    },
+    {
+        pergunta: "Quem era o líder dos Viajantes (Travelers)?",
+        opcoes: [
+            "Silas",
+            "Markos",
+            "Enzo",
+            "Kai Parker"
+        ],
+        correta: 1
+    },
+    {
+        pergunta: "Em qual cidade se passa principalmente a série The Originals?",
+        opcoes: [
+            "Mystic Falls",
+            "Atlanta",
+            "Nova Orleans",
+            "Chicago"
+        ],
+        correta: 2
+    }
+];
+
+
+/* UMA ÚNICA PERGUNTA BÔNUS */
+
+const perguntaBonus = {
+    nivel: "PERGUNTA BÔNUS",
+    pergunta: "Qual era o nome do médico responsável pelos experimentos da Sociedade Augustine?",
+    resposta: "Dr. Wes Maxfield"
+};
+
+
+/* VARIÁVEIS DO JOGO */
+
+const quizApp = document.getElementById("quizApp");
+
+const rodadas = [
+    rodada1,
+    rodada2,
+    rodada3
+];
+
+let participantes = [];
+let quantidadeParticipantes = 3;
+let indicePergunta = 0;
+let indiceParticipante = 0;
+let respostasAtuais = [];
+let rankingAtual = [];
+
+
+/* EVITAR QUE NOMES SEJAM INTERPRETADOS COMO HTML */
+
+function escaparHTML(texto) {
+    return String(texto).replace(/[&<>"']/g, function(caractere) {
+        const caracteres = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        };
+
+        return caracteres[caractere];
+    });
+}
+
+
+/* COMEÇAR QUIZ */
+
+document.getElementById("iniciarQuiz").addEventListener("click", function() {
+    quantidadeParticipantes = Number(
+        document.getElementById("quantidadeParticipantes").value
+    );
+
+    participantes = [];
+    indicePergunta = 0;
+    indiceParticipante = 0;
+    respostasAtuais = [];
+
+    mostrarCadastro();
+});
+
+
+/* CADASTRO DAS PARTICIPANTES */
+
+function mostrarCadastro() {
+    const numero = participantes.length + 1;
+
+    quizApp.innerHTML = `
+        <div class="quiz-selo">THE MYSTIC FALLS TRIAL</div>
+
+        <h3>Participante ${numero} de ${quantidadeParticipantes}</h3>
+
+        <p class="quiz-texto">
+            Digite seu nome para começar sua rodada individual.
+            Suas perguntas serão diferentes das outras participantes.
+        </p>
+
+        <label for="nomeParticipante" class="quiz-texto">
+            Nome da participante:
+        </label>
+
+        <input
+            type="text"
+            id="nomeParticipante"
+            class="quiz-campo"
+            maxlength="25"
+            placeholder="Digite seu nome..."
+            autocomplete="off"
+        >
+
+        <p id="erroNome" class="quiz-aviso-erro"></p>
+
+        <button class="quiz-botao" id="confirmarNome">
+            COMEÇAR MINHA RODADA
+        </button>
+    `;
+
+    const campoNome = document.getElementById("nomeParticipante");
+
+    campoNome.focus();
+
+    document.getElementById("confirmarNome").addEventListener("click", function() {
+        const nome = campoNome.value.trim();
+        const erro = document.getElementById("erroNome");
+
+        if (nome.length < 2) {
+            erro.textContent = "Digite um nome com pelo menos 2 letras.";
+            return;
+        }
+
+        const nomeRepetido = participantes.some(function(p) {
+            return p.nome.toLowerCase() === nome.toLowerCase();
+        });
+
+        if (nomeRepetido) {
+            erro.textContent = "Esse nome já foi utilizado. Escolha outro.";
+            return;
+        }
+
+        participantes.push({
+            nome: nome,
+            score: 0,
+            ordem: participantes.length
+        });
+
+        indiceParticipante = participantes.length - 1;
+        indicePergunta = 0;
+        respostasAtuais = [];
+
+        mostrarPergunta();
+    });
+
+    campoNome.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            document.getElementById("confirmarNome").click();
+        }
+    });
+}
+
+
+/* MOSTRAR PERGUNTAS NORMAIS */
+
+function mostrarPergunta() {
+    const perguntas = rodadas[indiceParticipante];
+    const perguntaAtual = perguntas[indicePergunta];
+    const nome = participantes[indiceParticipante].nome;
+
+    const progresso = ((indicePergunta + 1) / 5) * 100;
+
+    quizApp.innerHTML = `
+        <div class="quiz-selo">RODADA INDIVIDUAL</div>
+
+        <h3>${escaparHTML(nome)}</h3>
+
+        <p class="quiz-progresso">
+            PERGUNTA ${indicePergunta + 1} DE 5
+        </p>
+
+        <div class="quiz-barra">
+            <div class="quiz-barra-progresso" style="width:${progresso}%"></div>
+        </div>
+
+        <p class="quiz-pergunta">
+            ${perguntaAtual.pergunta}
+        </p>
+
+        <div class="quiz-opcoes" id="opcoesQuiz">
+            ${perguntaAtual.opcoes.map(function(opcao, index) {
+                return `
+                    <button class="quiz-opcao" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${opcao}
+                    </button>
+                `;
+            }).join("")}
+        </div>
+
+        <p class="quiz-aviso" id="avisoQuiz">
+            Escolha uma alternativa.
+        </p>
+
+        <button class="quiz-botao" id="proximaPergunta" style="display:none;">
+            PRÓXIMA PERGUNTA
+        </button>
+    `;
+
+    let respostaSelecionada = null;
+
+    document.querySelectorAll(".quiz-opcao").forEach(function(botao) {
+        botao.addEventListener("click", function() {
+            if (respostaSelecionada !== null) {
+                return;
+            }
+
+            respostaSelecionada = Number(botao.dataset.index);
+
+            document.querySelectorAll(".quiz-opcao").forEach(function(opcao) {
+                opcao.disabled = true;
+                opcao.classList.remove("selecionada");
+            });
+
+            botao.classList.add("selecionada");
+
+            document.getElementById("avisoQuiz").textContent =
+                "Resposta registrada! Continue quando estiver pronta.";
+
+            document.getElementById("proximaPergunta").style.display = "block";
+        });
+    });
+
+    document.getElementById("proximaPergunta").addEventListener("click", function() {
+        respostasAtuais.push(respostaSelecionada);
+        indicePergunta++;
+
+        if (indicePergunta < 5) {
+            mostrarPergunta();
+        } else {
+            finalizarRodada();
+        }
+    });
+}
+
+
+/* FINALIZAR RODADA INDIVIDUAL */
+
+function finalizarRodada() {
+    const perguntas = rodadas[indiceParticipante];
+    let pontos = 0;
+
+    perguntas.forEach(function(pergunta, index) {
+        if (respostasAtuais[index] === pergunta.correta) {
+            pontos++;
+        }
+    });
+
+    participantes[indiceParticipante].score = pontos;
+
+    const nome = participantes[indiceParticipante].nome;
+
+    quizApp.innerHTML = `
+        <div class="quiz-selo">RODADA CONCLUÍDA</div>
+
+        <div class="quiz-resultado">
+            <h3>${escaparHTML(nome)}, sua rodada terminou!</h3>
+
+            <p>
+                Suas respostas foram registradas.
+                Sua pontuação ficará em segredo até todas as participantes terminarem.
+            </p>
+
+            <p>
+                Prepare-se para descobrir quem conquistará o primeiro lugar!
+            </p>
+
+            <button class="quiz-botao" id="continuarQuiz">
+                ${participantes.length < quantidadeParticipantes
+                    ? "PRÓXIMA PARTICIPANTE"
+                    : "REVELAR RESULTADOS"}
+            </button>
+        </div>
+    `;
+
+    document.getElementById("continuarQuiz").addEventListener("click", function() {
+        if (participantes.length < quantidadeParticipantes) {
+            mostrarCadastro();
+        } else {
+            iniciarRanking();
+        }
+    });
+}
+
+
+/* =====================================
+   DESEMPATE COM O SINO
+===================================== */
+
+/*
+   O bônus só aparece quando há empate.
+   É apenas uma pergunta.
+   A pessoa que pegar o sino primeiro é selecionada na tela.
+   A organizadora marca se a resposta foi correta ou incorreta.
+   Se errar, outra pessoa empatada pode tentar responder.
+*/
+
+function iniciarDesempate(grupo, indiceNoRanking) {
+    let participantesDisponiveis = [...grupo];
+
+    mostrarPerguntaSino(participantesDisponiveis, indiceNoRanking);
+}
+
+
+function mostrarPerguntaSino(grupoDisponivel, indiceNoRanking) {
+    if (grupoDisponivel.length === 0) {
+        mostrarRanking(rankingAtual, true);
+        return;
+    }
+
+    quizApp.innerHTML = `
+        <div class="quiz-selo">ESCALADA DE DESAFIO</div>
+
+        <h3>Empate detectado!</h3>
+
+        <div class="quiz-sino">🔔</div>
+
+        <p class="quiz-texto">
+            As participantes empataram na pontuação!
+            Agora é hora da pergunta bônus.
+        </p>
+
+        <p class="quiz-pergunta">
+            ${perguntaBonus.pergunta}
+        </p>
+
+        <p class="quiz-aviso">
+            Quem pegar o sino primeiro terá a chance de responder.
+            Se errar, outra participante poderá tentar.
+        </p>
+
+        <p class="quiz-progresso">
+            QUEM PEGOU O SINO PRIMEIRO?
+        </p>
+
+        <div class="quiz-opcoes">
+            ${grupoDisponivel.map(function(participante, index) {
+                return `
+                    <button class="quiz-opcao" data-index="${index}">
+                        🔔 ${escaparHTML(participante.nome)}
+                    </button>
+                `;
+            }).join("")}
+        </div>
+
+        <p class="quiz-aviso" id="avisoSino">
+            Selecione quem pegou o sino primeiro.
+        </p>
+    `;
+
+    document.querySelectorAll(".quiz-opcao").forEach(function(botao) {
+        botao.addEventListener("click", function() {
+            const indice = Number(botao.dataset.index);
+            const participanteEscolhida = grupoDisponivel[indice];
+
+            mostrarConfirmacaoResposta(
+                grupoDisponivel,
+                participanteEscolhida,
+                indiceNoRanking
+            );
+        });
+    });
+}
+
+
+function mostrarConfirmacaoResposta(grupoDisponivel, participante, indiceNoRanking) {
+    quizApp.innerHTML = `
+        <div class="quiz-selo">PERGUNTA BÔNUS</div>
+
+        <div class="quiz-sino">🔔</div>
+
+        <h3>Vez de ${escaparHTML(participante.nome)}!</h3>
+
+        <p class="quiz-texto">
+            Essa participante pegou o sino primeiro e vai responder à pergunta.
+        </p>
+
+        <p class="quiz-pergunta">
+            ${perguntaBonus.pergunta}
+        </p>
+
+        <div class="quiz-resposta">
+            Resposta correta: ${perguntaBonus.resposta}
+        </div>
+
+        <p class="quiz-aviso">
+            Depois de ouvir a resposta, marque o resultado:
+        </p>
+
+        <button class="quiz-botao" id="respostaCerta">
+            ACERTOU!
+        </button>
+
+        <button class="quiz-botao" id="respostaErrada">
+            ERROU!
+        </button>
+    `;
+
+    document.getElementById("respostaCerta").addEventListener("click", function() {
+        participante.venceuDesempate = true;
+
+        const outros = grupoDisponivel.filter(function(p) {
+            return p !== participante;
+        });
+
+        finalizarDesempateComVencedora(
+            participante,
+            outros,
+            indiceNoRanking
+        );
+    });
+
+    document.getElementById("respostaErrada").addEventListener("click", function() {
+        const restantes = grupoDisponivel.filter(function(p) {
+            return p !== participante;
+        });
+
+        if (restantes.length > 0) {
+            mostrarPerguntaSino(restantes, indiceNoRanking);
+        } else {
+            mostrarEmpateSemRespostaCorreta(indiceNoRanking);
+        }
+    });
+}
+
+
+function finalizarDesempateComVencedora(vencedora, restantes, indiceNoRanking) {
+    quizApp.innerHTML = `
+        <div class="quiz-selo">DESEMPATE CONCLUÍDO</div>
+
+        <div class="quiz-sino">🏆</div>
+
+        <h3>${escaparHTML(vencedora.nome)} venceu o desempate!</h3>
+
+        <p class="quiz-texto">
+            A resposta estava correta! O resultado será considerado no ranking.
+        </p>
+
+        <button class="quiz-botao" id="verRanking">
+            VER RANKING
+        </button>
+    `;
+
+    document.getElementById("verRanking").addEventListener("click", function() {
+        const grupoOrdenado = [vencedora, ...restantes];
+
+        rankingAtual.splice(
+            indiceNoRanking,
+            grupoOrdenado.length,
+            ...grupoOrdenado
+        );
+
+        mostrarRanking(rankingAtual, false);
+    });
+}
+
+
+function mostrarEmpateSemRespostaCorreta(indiceNoRanking) {
+    quizApp.innerHTML = `
+        <div class="quiz-selo">FIM DO DESEMPATE</div>
+
+        <h3>Ninguém acertou!</h3>
+
+        <p class="quiz-texto">
+            Todas as participantes tiveram a oportunidade de responder,
+            mas ninguém acertou a pergunta bônus.
+            Por isso, o empate continua.
+        </p>
+
+        <button class="quiz-botao" id="verRankingEmpate">
+            VER RANKING
+        </button>
+    `;
+
+    document.getElementById("verRankingEmpate").addEventListener("click", function() {
+        mostrarRanking(rankingAtual, true);
+    });
+}
+
+
+/* =====================================
+   RANKING FINAL
+===================================== */
+
+function iniciarRanking() {
+    const pontuacoes = [...new Set(
+        participantes.map(function(p) {
+            return p.score;
+        })
+    )].sort(function(a, b) {
+        return b - a;
+    });
+
+    rankingAtual = [];
+
+    pontuacoes.forEach(function(pontos) {
+        const grupo = participantes.filter(function(p) {
+            return p.score === pontos;
+        });
+
+        rankingAtual.push(...grupo);
+    });
+
+    const grupoEmpatado = rankingAtual.filter(function(p) {
+        return p.score === rankingAtual[0].score;
+    });
+
+    if (grupoEmpatado.length > 1) {
+        const indiceEmpate = rankingAtual.indexOf(grupoEmpatado[0]);
+        iniciarDesempate(grupoEmpatado, indiceEmpate);
+    } else {
+        mostrarRanking(rankingAtual, false);
+    }
+}
+
+
+/* EXIBIR O PÓDIO */
+
+function mostrarRanking(ranking, empateContinua) {
+    const medalhas = ["🥇", "🥈", "🥉"];
+
+    const titulos = [
+        "Rainha de Mystic Falls",
+        "Vampira Original",
+        "Lenda Sobrenatural"
+    ];
+
+    let htmlRanking = "";
+
+    ranking.forEach(function(participante, index) {
+        let textoPosicao = `${index + 1}º LUGAR`;
+
+        if (empateContinua && index > 0 &&
+            participante.score === ranking[0].score) {
+            textoPosicao = "EMPATE";
+        }
+
+        htmlRanking += `
+            <li>
+                <div>
+                    <span class="quiz-posicao">
+                        ${medalhas[index] || "🏅"} ${textoPosicao}
+                    </span>
+                    <br>
+                    <strong>${escaparHTML(participante.nome)}</strong>
+                    <br>
+                    <small style="color:#c2b5b8;">
+                        ${titulos[index] || "Participante"}
+                    </small>
+                </div>
+
+                <div class="quiz-pontos">
+                    ${participante.score}/5 pontos
+                </div>
+            </li>
+        `;
+    });
+
+    quizApp.innerHTML = `
+        <div class="quiz-selo">THE MYSTIC FALLS TRIAL</div>
+
+        <div class="quiz-resultado">
+            <h3>O resultado foi revelado!</h3>
+
+            <p>
+                As participantes enfrentaram os desafios.
+                Descubra quem conquistou o trono de Mystic Falls!
+            </p>
+
+            ${empateContinua ? `
+                <p class="quiz-aviso">
+                    O empate continuou porque ninguém acertou a pergunta bônus.
+                </p>
+            ` : ""}
+
+            <ul class="quiz-ranking">
+                ${htmlRanking}
+            </ul>
+
+            <p>
+                Parabéns a todas as participantes!
+            </p>
+
+            <button class="quiz-botao" id="reiniciarQuiz">
+                JOGAR NOVAMENTE
+            </button>
+        </div>
+    `;
+
+    document.getElementById("reiniciarQuiz").addEventListener("click", reiniciarQuiz);
+}
+
+
+/* REINICIAR O QUIZ */
+
+function reiniciarQuiz() {
+    participantes = [];
+    indicePergunta = 0;
+    indiceParticipante = 0;
+    respostasAtuais = [];
+    rankingAtual = [];
+
+    quizApp.innerHTML = `
+        <div class="quiz-selo">THE VAMPIRE DIARIES</div>
+
+        <h3>Você conhece Mystic Falls?</h3>
+
+        <p class="quiz-texto">
+            Duas ou três participantes. Perguntas diferentes.
+            Um único pódio. Prepare-se para o desafio!
+        </p>
+
+        <label for="quantidadeParticipantes" class="quiz-texto">
+            Quantas participantes vão jogar?
+        </label>
+
+        <select id="quantidadeParticipantes" class="quiz-campo">
+            <option value="2">2 participantes</option>
+            <option value="3">3 participantes</option>
+        </select>
+
+        <button class="quiz-botao" id="iniciarQuiz">
+            COMEÇAR O DESAFIO
+        </button>
+    `;
+
+    document.getElementById("iniciarQuiz").addEventListener("click", function() {
+        quantidadeParticipantes = Number(
+            document.getElementById("quantidadeParticipantes").value
+        );
+
+        mostrarCadastro();
+    });
+}
+
+
 /* TRATAMENTO DE IMAGENS QUE NÃO CARREGAREM */
 
 document.querySelectorAll("img").forEach(function(imagem) {
@@ -1036,10 +2146,10 @@ document.querySelectorAll("img").forEach(function(imagem) {
         imagem.removeAttribute("src");
         imagem.alt = "Imagem indisponível";
         imagem.classList.add("imagem-indisponivel");
-
         imagem.style.objectFit = "contain";
     });
 });
+
 </script>
 
 </body>
